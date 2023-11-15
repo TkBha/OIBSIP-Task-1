@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@100&family=Montserrat:wght@300&family=Ubuntu:ital,wght@0,300;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #1f2605;
+            height: 270vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .screen-height {
+            min-height: 100vh;
+
+        }
+
+        .navbar {
+            max-width: 80vw;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-heading {
+            font-size: 30px;
+        }
+
+        .navbar ul {
+            align-items: center;
+            height: 70px;
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .caret-down {
+            width: 15px;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            color: white;
+            transform: translateY(-50%);
+        }
+
+        .dropbtn {
+            padding: 10px 10px;
+            text-decoration: none;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            margin: 10px;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black !important;
+            padding: 20px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e2e1e1;
+
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .home-page-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .img-container {
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .section-one-heading {
+            margin: 20px 0 25px 0;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .destination-poster-img {
+            width: 100%;
+            object-fit: contain;
+            max-height: 100px;
+            margin-right: 10px;
+            transition: transform 450ms;
+            max-height: 250px;
+        }
+
+        .destination-pages {
+            display: flex;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            padding: 20px;
+        }
+
+        .destination-poster-img:hover {
+            transform: scale(1.08);
+        }
+
+        .destination-pages::-webkit-scrollbar {
+            display: none;
+        }
+
+        .top-left {
+            width: 50%;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            height: 10vh;
+            padding-left: 8%;
+        }
+
+        .section-second-heading {
+            font-size: 30px;
+            margin-top: 13px;
+            margin-bottom: 13px;
+        }
+
+
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-right {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .travel-destinations {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .destination-poster-img {
+            width: 100%;
+            border: 5px solid white;
+            object-fit: fill;
+            max-width: 400px;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .section-third {
+            text-align: center;
+            display: block;
+            max-width: 100% !important;
+            width: 90% !important;
+            margin: auto;
+        }
+
+        .airlines-section {
+            padding: 20px;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 50px;
+            margin-top: 0;
+
+        }
+
+        .airlines-column {
+            background-color: white;
+            padding: 20px;
+            height: 50px;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 5px 5px 20px rgba(121, 118, 118, 0.5);
+            border-radius: 14px;
+            transition: transform 450ms;
+    
+        }
+
+        .airlines-column a {
+            color: black;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .airlines-column img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .section-third-heading {
+            font-size: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .airlines-column:hover {
+            transform: scale(1.08);
+        }
+
+        .call-to-action {
+            background-color: #b31942;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px 10px 10px 10px;
+            font-family: sans-serif;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .call-to-action>a {
+            align-items: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .call-to-action img {
+            align-items: center;
+            width: 35px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        footer {
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-heading {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-input-tag {
+            padding: 20px;
+            border-radius: 5px;
+            margin-right: 5px;
+            width: 300px;
+        }
+
+        .newsletter-subscribe {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 25px;
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .copyright {
+            font-size: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <div class="nav-heading">Travel Paradise</div>
+                <ul class="navbar-items">
+                    <li><a href="#home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#Book%20A%20Flight" class="dropbtn">Book Flights <img class="caret-down"
+                                src="arrow-down.png" alt=""></a>
+                        <div class="dropdown-content">
+                            <a href="#">One Way Flight</a>
+                            <a href="#">Multi City Flight</a>
+                            <a href="#">Manage Booking</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#Book%20A%20Flight" class="dropbtn">Blogs</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#Book%20A%20Flight" class="dropbtn">Contact us</a>
+                    </li>
+                    <li>
+                        <a href="#Book%20A%20Flight" class="dropbtn">Our Story</a>
+                    </li>
+            </nav>
+            <hr>
+        </header>
+        <main class="screen-height">
+            <div class="img-container">
+                <img class="home-page-banner"
+                    src="https://cdn-jmfjh.nitrocdn.com/frMctwYFfanElwtMxHTqPSxgUCIusdBY/assets/images/optimized/rev-1d90bd9/www.airlinespetpolicy.com/images/homepage-bnr.jpg"
+                    alt="">
+            </div>
+            <section class="section-one">
+                <h2 class="section-one-heading">Popular Destination</h2>
+                <div class="travel-destinations">
+                    <figure>
+                        <img class="destination-poster-img"
+                            src="https://www.travelandleisure.com/thmb/91pb8LbDAUwUN_11wATYjx5oF8Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/new-york-city-evening-NYCTG0221-52492d6ccab44f328a1c89f41ac02aea.jpg"
+                            alt="" />
+                        <figcaption>New York City</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="destination-poster-img"
+                            src="https://gumlet.assettype.com/outlooktraveller%2Fimport%2Foutlooktraveller%2Fpublic%2Fuploads%2Farticles%2Fexplore%2Fsumit-sourav-eSRtxPd9q1c-unsplash.jpg?w=1200&auto=format%2Ccompress&ogImage=true&enlarge=true"
+                            alt="" />
+                        <figcaption>Goa</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="destination-poster-img"
+                            src="https://www.travelandleisure.com/thmb/wwUPgdpCUuD5sAPFLQf4YasjH0M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicago-illinois-CHITG0221-e448062fc5164da0bba639f9857987f6.jpg"
+                            alt="" />
+                        <figcaption>Chicago, Illinois</figcaption>
+                    </figure>
+                </div>
+
+            </section>
+
+            <section class="section-one">
+                <div class="flex">
+                    <div class="top-left">
+                        <h1 class="section-second-heading">Special Flight Discount On Family Trip</h1>
+                        <p class="section-paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum a nihil possimus quo hic esse
+                            exercitationem facere dignissimos cupiditate amet, officiis in, optio itaque, est sunt quae
+                            temporibus quibusdam alias. Amet officia odio quia enim consectetur iste commodi sequi
+                            distinctio eaque dicta, ut iusto illum? At praesentium nihil illum. Impedit?
+                        </p>
+                    </div>
+                    <div class="top-right">
+                        <img src="indian-family-travel-removebg-preview.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <br>
+            <section class="section-third">
+                <h2 class="section-third-heading">Cheap Flight Deals By Airlines</h2>
+                <ul class="airlines-section">
+                    <li class="airlines-column"><a href="#United Airlines"><img
+                                src="https://www.freepnglogos.com/uploads/united-airlines-logo-emblem-png-5.png"
+                                alt="">United Airlines</a></li>
+                    <li class="airlines-column"><a href="#Delta Airlines"><img
+                                src="https://companieslogo.com/img/orig/DAL-3ea1d23b.png?t=1648913453" alt="">Delta
+                            Airlines</a></li>
+                    <li class="airlines-column"><a href="#American Airlines"><img
+                                src="https://seeklogo.com/images/A/american-airlines-logo-F44A055D11-seeklogo.com.png"
+                                alt="">American Airlines</a></li>
+                    <li class="airlines-column"><a href="#Lufthansa Airlines"><img
+                                src="https://companieslogo.com/img/orig/LHA.DE-909aa95f.png?t=1635288732"
+                                alt="">Lufthansa Airlines</a></li>
+                    <li class="airlines-column"><a href="#British Airways"><img
+                                src="https://logos-world.net/wp-content/uploads/2021/02/British-Airways-Symbol.png"
+                                alt="">British Airways</a></li>
+                </ul>
+            </section>
+        </main>
+        <hr>
+        <footer>
+            <h2 class="footer-heading">Latest deals and offers sent directly to you</h2>
+            <form>
+                <input class="newsletter-input-tag" type="email" placeholder="Enter your email">
+                <button class="newsletter-subscribe" type="submit">Subscribe</button>
+            </form>
+            <div class="social-icons">
+                <a href="#"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+                        alt=""></a>
+                <a href="#"><img
+                        src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
+                        alt=""></a>
+                <a href="#"><img src="https://seeklogo.com/images/I/instagram-new-2016-logo-D9D42A0AD4-seeklogo.com.png"
+                        alt=""></a>
+                <a href="#"><img src="https://seeklogo.com/images/P/pinterest-badge-logo-82C89A5E42-seeklogo.com.png"
+                        alt=""></a>
+            </div>
+            <p class="copyright">&#169; 2022-2023 Airlines Pet Policy, All Rights Reserved.</p>
+        </footer>
+
+        <div class="call-to-action">
+            <a href="tel:+1-800-123-4567"><img src="telephone.png" alt=""> +1-800-123-4567</a>
+        </div>
+    </div>
+</body>
+
+</html>
